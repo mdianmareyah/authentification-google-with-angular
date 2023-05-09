@@ -1,0 +1,63 @@
+
+<ul class="list-group" *ngFor="let book of books" >
+
+  <li class="list-group-item" (dblclick)="delete($event, book)" (click)="edit($event,book)">
+    {{ book.nom }}
+    {{ book.description }}
+    {{book.auteur}}
+
+    <button type="button"  class="btn btn-primary col-sm-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Modifier
+    </button>
+  </li>
+
+</ul>
+
+<!-- Modal -->
+<div *ngIf="bookState" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form (ngSubmit)="submit(f)" #f="ngForm">
+          <div class="modal-body">
+
+
+              <div class="row">
+                <div class="form-group">
+                  <label for="nom" class="col-sm-4">nom Livre</label>
+                  <input type="text" class="form-control col-sm-8" name="nom" [(ngModel)]="bookMo.nom">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label for="auteur" class="col-sm-4">auteur</label>
+                  <input type="text" class="form-control col-sm-8" name="auteur" [(ngModel)]="bookMo.auteur">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label for="description" class="col-sm-4">description</label>
+                  <input type="text" class="form-control col-sm-8" name="description" [(ngModel)]="bookMo.description">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label for="photo" class="col-sm-4">photo</label>
+                  <input type="text" class="form-control col-sm-8" name="photo" [(ngModel)]="bookMo.photoUrl">
+                </div>
+              </div>
+
+
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" >Close</button>
+            <button  type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>

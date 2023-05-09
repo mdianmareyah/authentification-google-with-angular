@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "test-bd3c0"
+  },
+  "targets": {
+    "test-bd3c0": {
+      "hosting": {
+        "testMaiLSendm": [
+          "test-bd3c0"
+        ]
+      }
+    }
+  }
+}
